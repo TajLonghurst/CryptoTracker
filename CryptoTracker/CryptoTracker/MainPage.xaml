@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CryptoTracker.MainPage">
+
+    <StackLayout>
+        <ListView x:Name="coinListView">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <!--
+                    <ImageCell 
+                        Text="{Binding Name}" 
+                        ImageSource="{Binding Icon_url, StringFormat='{}(0:c)'}"  
+                        Detail="{Binding Price_usd}"/>
+                    -->
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Image Source="{Binding Icon_url}"></Image>
+                            <StackLayout>
+                                <Grid>
+                                    <Label TextColor="Black" Grid.Column="0" Text="{Binding Name}"></Label>
+                                    <Label Grid.Column="1" Text="{Binding Asset_id}"></Label>
+                                </Grid>
+                            </StackLayout>
+                            <Label Text="{Binding Price_usd}"></Label>
+                        </StackLayout>
+                    </ViewCell>
+
+
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="RefreshButton" Text="Refresh Coins" Clicked="RefreshButton_Clicked"></Button>
+    </StackLayout>
+
+</ContentPage>

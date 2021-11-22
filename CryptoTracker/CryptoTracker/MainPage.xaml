@@ -19,7 +19,7 @@
                             <StackLayout>
                                 <Grid>
                                     <Label TextColor="Black" Grid.Column="0" Text="{Binding Name}"></Label>
-                                    <Label Grid.Column="1" Text="{Binding Asset_id}"></Label>
+                                    <Label AutomationId="DisplayAPIData" Grid.Column="1" Text="{Binding Asset_id}"></Label>
                                 </Grid>
                             </StackLayout>
                             <Label Text="{Binding Price_usd}"></Label>

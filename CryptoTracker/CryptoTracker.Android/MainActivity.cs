@@ -1,5 +1,7 @@
 ﻿using System;
-
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
@@ -17,6 +19,9 @@ namespace CryptoTracker.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+            AppCenter.Start("630e5ac8-f83c-4fb0-946b-0a1526840b39",
+                   typeof(Analytics), typeof(Crashes));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

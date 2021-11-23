@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Security.Cryptography.X509Certificates;
+using Microsoft.AppCenter.Crashes;
 
 namespace CryptoTracker
 {
@@ -22,6 +23,7 @@ namespace CryptoTracker
         {
             InitializeComponent();
             coinListView.ItemsSource = GetCoinAPI();
+            
         }
 
         private void RefreshButton_Clicked(object sender, EventArgs e)
@@ -52,6 +54,18 @@ namespace CryptoTracker
                 }
             }
             return coins;
+        }
+
+        private void CrashBtn_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                Crashes.GenerateTestCrash();
+            }
+            catch (Exception ex)
+            {
+                Crashes.TrackError(ex, new Dictionary<string, string>() { { "Crash", "true" } });
+            }
         }
     }
 }

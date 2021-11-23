@@ -23,6 +23,7 @@
             </ListView.ItemTemplate>
         </ListView>
         <Button x:Name="RefreshButton" Text="Refresh Coins" Clicked="RefreshButton_Clicked"></Button>
+        <Button x:Name="CrashBtn" Text="Crash App" Clicked="CrashBtn_Clicked" ></Button>
     </StackLayout>
 
 </ContentPage>
